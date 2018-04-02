@@ -1,0 +1,7 @@
+# djangoで制作するときのgitignore設定
+*.pyc
+*.pyo
+__pycache__
+db.sqlite3
+# intelij製品のセッティング
+.idea/

@@ -8,12 +8,12 @@ h4{
     font-size: 18px;
 }
 
-.card-img-top{
+.card-img-top.onlistpage{
     /*横幅の348pxの1/2*/
     height:174px;
 }
 
-.card{
+.card.onlistpage{
     /*表示される記事が奇数枚あると最後の1枚が横に拡大されてしまうので、最大サイズを指定*/
     max-width:350px;
 }

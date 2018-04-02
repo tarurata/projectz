@@ -8,7 +8,7 @@ from .forms import CommentCreateForm
 # Create your views here.
 class IndexView(generic.ListView):
     model = Post
-    paginate_by = 6
+    paginate_by = 8
 
     def get_queryset(self):
         queryset = Post.objects.order_by('-created_at')
@@ -41,4 +41,4 @@ class CommentView(generic.CreateView):
         comment = form.save(commit=False)
         comment.post = get_object_or_404(Post, pk=post_pk)
         comment.save()
-        return redirect('img:detail', pk=post_pk)
+        return redirect('blog:detail', pk=post_pk)
