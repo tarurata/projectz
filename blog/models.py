@@ -1,0 +1,38 @@
+from django.db import models
+from django.utils import timezone
+
+
+# Create your models here.
+class Category(models.Model):
+    name = models.CharField('カテゴリ名', max_length=25)
+    created_at = models.DateTimeField('作成日', default=timezone.now)
+
+    def __str__(self):
+        return self.name
+
+
+class Post(models.Model):
+    title = models.CharField('タイトル', max_length=50)
+    text = models.TextField('本文')
+    created_at = models.DateTimeField('作成日', default=timezone.now)
+    category = models.ForeignKey(Category, verbose_name='カテゴリ', on_delete=models.PROTECT)
+    thumbnail = models.ImageField(upload_to='images/', null='True', blank='True')
+
+    def __str__(self):
+        return self.title
+
+    def shortentext(self):
+        if len(self.text) > 20:
+            return self.text[:20] + '...'
+        else:
+            return self.text
+
+
+class Comment(models.Model):
+    name = models.CharField('お名前', max_length=30, default='名前')
+    text = models.TextField('本文')
+    post = models.ForeignKey(Post, verbose_name='紐づく記事', on_delete=models.PROTECT)
+    created_at = models.DateTimeField('作成日', default=timezone.now)
+
+    def __str__(self):
+        return self.text[:10]

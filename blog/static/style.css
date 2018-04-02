@@ -1,0 +1,10 @@
+.jumbotron {
+    background-image: url("img/header.jpg");
+    background-size: cover;
+    color: white;
+}
+
+h4{
+    font-size: 200px;
+}
+

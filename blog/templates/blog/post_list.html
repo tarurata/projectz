@@ -1,0 +1,56 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+
+    <div class="card-deck">
+        {% for post in post_list %}
+
+            <div class="card mb-3">
+                {% if post.thumbnail %}
+
+                    <img class="card-img-top" src="{{ post.thumbnail.url }}" alt="Card image cap">
+                {% else %}
+                    <img class="card-img-top" src="#" alt="Card image cap">
+                {% endif %}
+                <div class="card-block">
+                    <h4 class="card-title">{{ post.title }}</h4>
+                    <p class="card-text">{{ post.shortentext }}</p>
+                    <a href="{% url 'blog:detail' post.pk %}" class="btn btn-primary">続きを読む</a>
+                </div>
+            </div>
+            {#            <div class="card mb-3">#}
+            {#                <img class="card-img-top" src="..." alt="Card image cap">#}
+            {#                <div class="card-block">#}
+            {#                    <h4 class="card-title">Card title</h4>#}
+            {#                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the#}
+            {#                        card's content.</p>#}
+            {#                    <a href="#" class="btn btn-primary">Go somewhere</a>#}
+            {#                </div>#}
+            {#            </div>#}
+
+            {% if forloop.counter|divisibleby:"2" %}
+                {# close carddeck here and start new card deck#}
+                </div>
+                <div class="card-deck">
+            {% endif %}
+
+
+
+            {#        <div class="card mb-3">#}
+            {#            <h2 class="card-header bg-dark text-white">{{ post.title }}</h2>#}
+            {#            <div class="card-body">#}
+            {#                <p class="card-text">#}
+            {#                    {{ post.shortentext }}#}
+            {#                </p>#}
+            {#                <p>{{ post.created_at }},{{ post.category }}</p>#}
+            {#                <a href="{% url 'img:detail' post.pk %}" class="btn btn-dark">続きを読む</a>#}
+            {#            </div>#}
+            {#        </div>#}
+
+        {% endfor %}
+        {# close the last carddeck#}
+        </div>
+    {% include 'blog/page.html' %}
+
+{% endblock %}
