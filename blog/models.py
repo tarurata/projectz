@@ -16,7 +16,7 @@ class Post(models.Model):
     text = models.TextField('本文')
     created_at = models.DateTimeField('作成日', default=timezone.now)
     category = models.ForeignKey(Category, verbose_name='カテゴリ', on_delete=models.PROTECT)
-    thumbnail = models.ImageField(upload_to='images/', null='True', blank='True')
+    thumbnail = models.ImageField('サムネイル', upload_to='images/', null='True', blank='True')
 
     def __str__(self):
         return self.title
@@ -36,3 +36,11 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text[:10]
+
+
+class Image(models.Model):
+    post = models.ForeignKey(
+        Post, verbose_name='紐づく記事', on_delete=models.PROTECT
+    )
+    src = models.ImageField('画像', upload_to='images/', null='True', blank='True')
+    created_at = models.DateTimeField('作成日', default=timezone.now)

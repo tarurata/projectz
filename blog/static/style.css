@@ -17,3 +17,17 @@ h4{
     /*表示される記事が奇数枚あると最後の1枚が横に拡大されてしまうので、最大サイズを指定*/
     max-width:350px;
 }
+
+.card-title.onlistpage{
+    margin-bottom:3px;
+}
+
+.annotation{
+    /*各カード内で作成日、カテゴリを表示するpタグ*/
+    font-size: small;
+    margin-bottom:3px;
+    color: #888;
+}
+.card-text.onlistpage{
+    margin-bottom:3px;
+}
