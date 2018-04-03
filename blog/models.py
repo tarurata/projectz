@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.utils.html import strip_tags
 
 
 # Create your models here.
@@ -18,15 +19,16 @@ class Post(models.Model):
     category = models.ForeignKey(Category, verbose_name='カテゴリ', on_delete=models.PROTECT)
     thumbnail = models.ImageField('サムネイル', upload_to='images/', null='True', blank='True')
 
-
     def __str__(self):
         return self.title
 
     def shortentext(self):
-        if len(self.text) > 20:
-            return self.text[:20] + '...'
+        # タグを除去し、20文字だけ表示する。
+        notagstext = strip_tags(self.text)
+        if len(notagstext) > 20:
+            return notagstext[:20] + '...'
         else:
-            return self.text
+            return notagstext
 
 
 class Comment(models.Model):
@@ -48,5 +50,5 @@ class Image(models.Model):
 
     def __str__(self):
         """imgタグを生成する。これをそのまま記事欄に貼り付ける。"""
-        return "<img src='"+self.src.url+"'>"
+        return "<img src='" + self.src.url + "'>"
         # return '間接リンク:[filter imgpk]{0}[end] 直接リンク:[filter img]{1}[end]'.format(self.pk, self.src.url)
