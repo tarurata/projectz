@@ -2,6 +2,8 @@
     background-image: url("img/header.jpg");
     background-size: cover;
     color: white;
+    width:1440px;
+    height:277px;
 }
 
 h4 {
