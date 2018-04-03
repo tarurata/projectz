@@ -6,12 +6,14 @@
         <h2 class="card-header bg-dark text-white">{{ post.title }}</h2>
         <div class="card-body">
             <p>{{ post.created_at }},{{ post.category }}</p>
-            {{ post.text | linebreaksbr | urlize }}
+            {% autoescape off %}
+                {{ post.text | linebreaksbr | urlize }}
+            {% endautoescape %}
         </div>
     </div>
     {% for comment in post.comment_set.all %}
         <p>{{ comment.name }}</p>
-        <p>{{ comment.text | linebreaks | urlize }}</p>
+        <p>{{ comment.text |linebreaks | urlize }}</p>
     {% endfor %}
 
     <a class="btn btn-dark" href="{% url 'blog:comment' post.pk %}">コメント投稿ページへ</a>

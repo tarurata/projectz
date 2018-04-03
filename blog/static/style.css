@@ -4,30 +4,38 @@
     color: white;
 }
 
-h4{
+h4 {
     font-size: 18px;
 }
 
-.card-img-top.onlistpage{
+a.onlistpage{
+    text-decoration: none;
+    color: #000;
+}
+
+.card-img-top.onlistpage {
     /*横幅の348pxの1/2*/
-    height:174px;
+    height: 174px;
 }
 
-.card.onlistpage{
+.card.onlistpage {
     /*表示される記事が奇数枚あると最後の1枚が横に拡大されてしまうので、最大サイズを指定*/
-    max-width:350px;
+    max-width: 350px;
 }
 
-.card-title.onlistpage{
-    margin-bottom:3px;
+.card-title.onlistpage {
+    margin-bottom: 3px;
 }
 
-.annotation{
+.annotation {
     /*各カード内で作成日、カテゴリを表示するpタグ*/
     font-size: small;
-    margin-bottom:3px;
+    margin-bottom: 3px;
     color: #888;
 }
-.card-text.onlistpage{
-    margin-bottom:3px;
+
+.card-text.onlistpage {
+    margin-bottom: 3px;
 }
+
+

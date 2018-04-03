@@ -18,6 +18,7 @@ class Post(models.Model):
     category = models.ForeignKey(Category, verbose_name='カテゴリ', on_delete=models.PROTECT)
     thumbnail = models.ImageField('サムネイル', upload_to='images/', null='True', blank='True')
 
+
     def __str__(self):
         return self.title
 
@@ -42,5 +43,10 @@ class Image(models.Model):
     post = models.ForeignKey(
         Post, verbose_name='紐づく記事', on_delete=models.PROTECT
     )
-    src = models.ImageField('画像', upload_to='images/', null='True', blank='True')
+    src = models.ImageField('画像', upload_to='uploads/%Y/%m/%d/', blank=True, null=True)
     created_at = models.DateTimeField('作成日', default=timezone.now)
+
+    def __str__(self):
+        """imgタグを生成する。これをそのまま記事欄に貼り付ける。"""
+        return "<img src='"+self.src.url+"'>"
+        # return '間接リンク:[filter imgpk]{0}[end] 直接リンク:[filter img]{1}[end]'.format(self.pk, self.src.url)
