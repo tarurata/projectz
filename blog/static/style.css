@@ -1,16 +1,25 @@
 .jumbotron {
     background-image: url("img/header.jpg");
     background-size: cover;
-    color: white;
-    width:1440px;
-    height:277px;
+    /*PCから見ると文字が透明（背景画像に説明があるのでOK）*/
+    color: transparent;
+}
+
+@media screen and (max-width: 425px) {
+    /*　画面横幅が425pxより小さければここを読み込む　*/
+    .jumbotron {
+        background-image: none;
+        background-color: black;
+        /*スマホから見ると文字が見えるように*/
+        color: white;
+    }
 }
 
 h4 {
     font-size: 18px;
 }
 
-a.onlistpage{
+a.onlistpage {
     text-decoration: none;
     color: #000;
 }
