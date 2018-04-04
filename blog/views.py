@@ -20,7 +20,7 @@ class IndexView(generic.ListView):
 
 class CategoryView(generic.ListView):
     model = Post
-    paginate_by = 3
+    paginate_by = 4
 
     def get_queryset(self):
         category = get_object_or_404(Category, pk=self.kwargs['pk'])

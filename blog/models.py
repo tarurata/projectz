@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.utils.html import strip_tags
+from projectz.settings import MEDIA_URL  # 変数をインポートするのは良くない？
 
 
 # Create your models here.
@@ -17,7 +18,10 @@ class Post(models.Model):
     text = models.TextField('本文')
     created_at = models.DateTimeField('作成日', default=timezone.now)
     category = models.ForeignKey(Category, verbose_name='カテゴリ', on_delete=models.PROTECT)
-    thumbnail = models.ImageField('サムネイル', upload_to='images/', null='True', blank='True')
+    thumbnail = models.CharField('サムネイル', null=True, blank=True, default='', max_length=255, help_text='メディアフォルダから選び「uploads/2018/04/03/readingdog.jpg」のように入力')
+
+    def thumbnailurl(self):
+        return MEDIA_URL + self.thumbnail
 
     def __str__(self):
         return self.title
@@ -51,4 +55,4 @@ class Image(models.Model):
     def __str__(self):
         """imgタグを生成する。これをそのまま記事欄に貼り付ける。"""
         return "<img src='" + self.src.url + "'>"
-        # return '間接リンク:[filter imgpk]{0}[end] 直接リンク:[filter img]{1}[end]'.format(self.pk, self.src.url)
+

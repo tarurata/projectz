@@ -2,13 +2,6 @@ from django.contrib import admin
 from .models import Category, Post, Image
 
 
-# class ImageInline(admin.StackedInline):
-#     model = Image
-#     extra = 3
-#
-#
-# class PostAdmin(admin.ModelAdmin):
-#     inlines = [ImageInline, ]
 class ImageInline(admin.TabularInline):
     """記事内画像のインライン"""
     model = Image
