@@ -35,7 +35,8 @@
 
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input method="GET" action="{% url 'blog:index' %}" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="keyword">
+            <input method="GET" action="{% url 'blog:index' %}" class="form-control mr-sm-2" type="text"
+                   placeholder="Search" aria-label="Search" name="keyword">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
@@ -54,6 +55,12 @@
             {% endblock %}
         </div>
         <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top mb-3" src="{% static 'img/mypicture.png' %}" alt="Card image cap">
+                <h3 class="profile mt-3">Billy</h3>
+                <div class="card-body">Billyと申します。Djangoでweb制作をやっています。プログラミング学習中。<br>WEBライティングやサイト、バナー制作なども承ります。<br>TOEIC870点取得。英文ドキュメントも問題なく読めます。</div>
+            </div>
+            <br>
             <ul class="list-group">
                 <li class="list-group-item bg-dark text-white">カテゴリ一覧</li>
                 {% for category in category_list %}
@@ -62,6 +69,8 @@
             </ul>
         </div>
     </div>
+</div>
+
 </div>
 
 <footer class="bg-dark text-white text-center py-3 mt-3">

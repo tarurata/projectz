@@ -3,6 +3,7 @@
     background-size: cover;
     /*PCから見ると文字が透明（背景画像に説明があるのでOK）*/
     color: transparent;
+    border-radius: 0;
 }
 
 @media screen and (max-width: 425px) {
@@ -13,6 +14,15 @@
         /*スマホから見ると文字が見えるように*/
         color: white;
     }
+}
+
+.card.onlistpage {
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+.card.onlistpage:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 h4 {
@@ -49,4 +59,6 @@ a.onlistpage {
     margin-bottom: 3px;
 }
 
-
+h3.profile {
+    text-align: center;
+}
