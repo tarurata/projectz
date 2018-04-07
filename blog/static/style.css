@@ -1,4 +1,4 @@
-.jumbotron {
+.jumbotron.onlistpage {
     background-image: url("img/header.jpg");
     background-size: cover;
     /*PCから見ると文字が透明（背景画像に説明があるのでOK）*/
@@ -8,7 +8,7 @@
 
 @media screen and (max-width: 425px) {
     /*　画面横幅が425pxより小さければここを読み込む　*/
-    .jumbotron {
+    .jumbotron.onlistpage {
         background-image: none;
         background-color: black;
         /*スマホから見ると文字が見えるように*/
@@ -61,4 +61,10 @@ a.onlistpage {
 
 h3.profile {
     text-align: center;
+}
+
+.ondtlpg img{
+    /*詳細ページにてimgがレスポンシブ対応になっていない不具合を修正*/
+    width: 100%;
+    border-radius: calc(.25rem - 1px);
 }

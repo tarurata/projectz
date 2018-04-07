@@ -3,8 +3,8 @@
 
 {% block content %}
     <div class="card mb-3">
-        <h2 class="card-header bg-dark text-white">{{ post.title }}</h2>
-        <div class="card-body">
+        <h2 class="card-header bg-darkblue text-white">{{ post.title }}</h2>
+        <div class="card-body ondtlpg">
             <p>{{ post.created_at }},{{ post.category }}</p>
             {% autoescape off %}
                 {{ post.text | linebreaksbr | urlize }}
@@ -16,6 +16,6 @@
         <p>{{ comment.text |linebreaks | urlize }}</p>
     {% endfor %}
 
-    <a class="btn btn-dark" href="{% url 'blog:comment' post.pk %}">コメント投稿ページへ</a>
+    <a class="btn btn-darkblue" href="{% url 'blog:comment' post.pk %}">コメント投稿ページへ</a>
 
 {% endblock %}
