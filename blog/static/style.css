@@ -1,3 +1,14 @@
+.bg-darkblue {
+    background-color: #010B42;
+}
+
+.btn-darkblue{
+    color: #fff;
+    background-color: #010B42;
+    border-color: #010B42;
+
+}
+
 .jumbotron.onlistpage {
     background-image: url("img/header.jpg");
     background-size: cover;
@@ -63,7 +74,7 @@ h3.profile {
     text-align: center;
 }
 
-.ondtlpg img{
+.ondtlpg img {
     /*詳細ページにてimgがレスポンシブ対応になっていない不具合を修正*/
     width: 100%;
     border-radius: calc(.25rem - 1px);
