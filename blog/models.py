@@ -47,7 +47,7 @@ class Comment(models.Model):
 
 class Image(models.Model):
     post = models.ForeignKey(
-        Post, verbose_name='紐づく記事', on_delete=models.PROTECT
+        Post, verbose_name='紐づく記事', on_delete=models.CASCADE
     )
     src = models.ImageField('画像', upload_to='uploads/%Y/%m/%d/', blank=True, null=True)
     created_at = models.DateTimeField('作成日', default=timezone.now)
