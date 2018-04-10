@@ -38,7 +38,7 @@ class Post(models.Model):
 class Comment(models.Model):
     name = models.CharField('お名前', max_length=30, default='名前')
     text = models.TextField('本文')
-    post = models.ForeignKey(Post, verbose_name='紐づく記事', on_delete=models.PROTECT)
+    post = models.ForeignKey(Post, verbose_name='紐づく記事', on_delete=models.CASCADE)
     created_at = models.DateTimeField('作成日', default=timezone.now)
 
     def __str__(self):

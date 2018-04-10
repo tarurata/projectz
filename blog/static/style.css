@@ -2,7 +2,7 @@
     background-color: #010B42;
 }
 
-.btn-darkblue{
+.btn-darkblue {
     color: #fff;
     background-color: #010B42;
     border-color: #010B42;
@@ -78,4 +78,33 @@ h3.profile {
     /*詳細ページにてimgがレスポンシブ対応になっていない不具合を修正*/
     width: 100%;
     border-radius: calc(.25rem - 1px);
+}
+
+
+
+.ondtlpg.card-header{
+    font-weight: bold;
+}
+
+.ondtlpg h2 {
+    font-weight: bold;
+    position: relative;
+    color: white;
+    background: #010B42;
+    font-size: 21px;
+    line-height: 1.6;
+    padding: 0.3em 0.3em 0.3em 0.5em;
+    border-radius: 5px;
+
+}
+
+.ondtlpg h3 {
+    font-weight: bold;
+    background: url("img/check.png") no-repeat;
+    background-size: contain;
+    font-size: 18px;
+    position: relative;
+    color: black;
+    line-height: 0.8;
+    padding: 0.3em 0.3em 0.3em 1.7em;
 }
