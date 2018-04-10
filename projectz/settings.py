@@ -64,6 +64,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'blog.context_processors.common',
+                'website.context_processors.google_analytics'
             ],
         },
     },
@@ -119,3 +120,8 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+# Settings for Google analytics
+
+GOOGLE_ANALYTICS_PROPERTY_ID = 'xxx'
+GOOGLE_ANALYTICS_DOMAIN = 'billys.tech'
